@@ -1,3 +1,19 @@
+function startGame() {
+
+}
+
+function nextQuestion() {
+
+
+}
+function selectAnswer() {
+
+
+}
+
+
+
+
 var currentQuestion = 0;
 var time = questions.length * 15;
 var timerId;
