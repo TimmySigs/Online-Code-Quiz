@@ -1,6 +1,8 @@
+var currentQuestion = 0;
 var time = questions.length * 15;
 var timerId;
 var startBtn = document.querySelector("#startTime");
+
 
 
 
