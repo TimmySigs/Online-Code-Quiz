@@ -1,32 +1,34 @@
 // Questions//
 const questions = [ {
     question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts" },  
-    {
+        answers: [
+       { text: "strings", correct: false}, { text: "booleans", correct: false }, { text: "alerts", correct: true }, { text: "numbers", correct: false },
+    ],
     question: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"},  
-    {
+        answers: [
+        { text: "quotes", correct: false}, { text: "curly brackets", correct:false }, { text: "parentheses", correct:true }, { text: "square  brackets", correct: false }
+    ], 
+    
     question: "Arrays in Javascript can be used to store ____.",
-    choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-    answer: "all of the above"},  
-    {
+        answers: [
+        { text: "numbers and strings", correct: false}, { text: "other arrays", correct: false}, { text: "booleans", correct: false}, { text: "all of the above", correct: true }],
+    
     question: "String values must be enclosed within ____ when being assigned to variables.",
-    choices: ["commas", "curly brackets", "quotes", "parenthesis"],
-    answer: "quotes"},  
-    {
+        answers: [
+        { text: "commas", correct: false}, { text: "curly brackets", correct: false}, {text: "quotes", correct: true}, { text: "parenthesis", correct: false}],
+      
     question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
-    choices: ["Javascript", "terminal / bash", "for loops", "console log"],
-    answer: "console log" }
-];
+    answers: [
+        { text: "Javascript", correct: false}, { text: "terminal / bash", correct: false}, { text: "for loops", correct: false}, { text: "console log", correct: true}],
+    }]
 
 console.log(questions);
 
 const startButton = document.getElementById('startBtn')
+const nextButton = document.getElementById('nextBtn')
 const questionContainerEl = document.getElementById('questionContainer')
 const questionEl = document.getElementById('question')
-const answerButtonEl = document.getElementById('answer')
+const answerButtonEl = document.getElementById('answerBtn')
 
 
 let randomQuestion, currentQuestionIndex
@@ -44,24 +46,34 @@ function startGame() {
 }
 
 function nextQuestion() {
+    reset()
     showQuestion(randomQuestion[currentQuestionIndex])
 }
 
 function showQuestion(question) {
     questionEl.innerText = question.question
-    question.answer.forEach(answer => {
+    question.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
-        if(answer.answer) {
-            button.dataset.answer = answer.answer
+        if(answer.correct) {
+            button.dataset.answer = answer.correct
         }
+        button.addEventListener('click', selectAnswer)
+        answerButtonEl.appendChild(button)
     });
 }
 
-function selectAnswer() {
-    
-    
+function reset() {
+    nextBtn.classList.add('hide')
+    while (answerButtonEl.firstChild) {
+        answerButtonEl.removeChild
+        (answerButtonEl.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+
 }
 
 
