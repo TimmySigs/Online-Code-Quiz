@@ -7,7 +7,7 @@
     <title>Online-Coding-Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body" class="correct" class="wrong">
     <header>
         <h1>Welcome to the online Coding Quiz!</h1>
          <h2>Step right up and test your skills!</h2>
@@ -17,26 +17,18 @@
     <div class="container">
         <div id="questionContainer" class="hide">
             <div id="question">Question</div>
-            <div id="answerBtn" class="btnGrid"></div>
-            <button class="btn">choice 1</button>
-            <button class="btn">choice 2</button>
-            <button class="btn">choice 3</button>
-            <button class="btn">choice 4</button>
+            <div id="answerBtn" class="btnGrid">
+            <button class="btn">answer 1</button>
+            <button class="btn">answer 2</button>
+            <button class="btn">answer 3</button>
+            <button class="btn">answer 4</button>
+            </div>
         </div>
         <div class="controls">
             <button id="startBtn" class="startBtn btn">Start the test</button>
-            <button id="nextBtn" class="nextBtn btn hide">next</button> 
+            <!-- <button id="nextBtn" class="nextBtn btn hide">next</button>  -->
         </div>
     </div>
-
-  
-
-    <div id="timer">
-        Time: 0
-    </div> 
-
-
-
        
     </body>
     <script src="script.js"></script>
