@@ -11,24 +11,29 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
+    background-color: slategrey;
 }
 
-header { */
+header { 
     /* display: flex; */
     /* align-items: center;
     justify-content: center; */
      margin-top: 26px, 26px;
 } 
 
+.jumbotron {
+    background-color: steelblue;
+}
+
 .container {
+    color: aliceblue;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 50%;
     height: 200px;
-    background-color: white;
+    background-color: steelblue;
     border-radius: 7px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -43,6 +48,7 @@ header { */
 }
 
 .btn {
+    
     border: 1px solid black;
     background-color: plum;
     border-radius: 5px;

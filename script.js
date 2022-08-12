@@ -3,7 +3,9 @@ const startButton = document.getElementById('startBtn')
 const questionContainerEl = document.getElementById('questionContainer')
 const questionEl = document.getElementById('question')
 const answerButtonEl = document.getElementById('answerBtn')
-
+var timeEl = document.querySelector("#time");
+var timerId;
+var time = 60;
 
 let randomQuestion, currentQuestionIndex = 0
 
@@ -20,10 +22,20 @@ function startGame() {
     randomQuestion = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerEl.classList.remove('hide')
+    timerId = setInterval(tick, 1000);
+    timeEl.textContent = time;
     showQuestion()
     // nextQuestion()
 }
 
+function tick() {
+    time--;
+    timeEl.textContent = time;
+
+    if (time <= 0) {
+        endQuiz();
+    } 
+}
 // function nextQuestion() {
 //     // resetBox()
 //     showQuestion()
@@ -48,7 +60,6 @@ function showQuestion() {
 
 // function resetBox() {
 //     clearStatusClass(document.body)
-//     nextButton.classList.add('hide')
 //     while (answerButtonEl.firstChild) {
 //         answerButtonEl.removeChild
 //         (answerButtonEl.firstChild)
@@ -77,7 +88,7 @@ function selectAnswer() {
     //   startButton.classList.remove('hide')
     // }
     currentQuestionIndex++ 
-    if (currentQuestionIndex = questions.length) {
+    if (currentQuestionIndex === questions.length) {
         endQuiz()
     
     } else (
@@ -96,19 +107,20 @@ function selectAnswer() {
 
 function endQuiz() {
     startButton.innerText = 'Restart'
+    clearInterval(timerId)
 
 }
 
 
-function clearStatusClass(element) {
-    element.classList.remove('correct')
-    element.classList.remove('wrong')
-}
+// function clearStatusClass(element) {
+//     element.classList.remove('correct')
+//     element.classList.remove('wrong')
+// }
 
 
 
 // Questions//
-const questions = [ {
+var questions = [ {
     question: "Commonly used data types DO NOT include:",
     answers: [
        { text: "strings", }, 
@@ -144,7 +156,7 @@ const questions = [ {
         { text: "curly brackets", }, 
         { text: "quotes", }, 
         { text: "parenthesis",}],
-      true: "quotes",
+    true: "quotes",
     },
 
     {question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
@@ -153,7 +165,7 @@ const questions = [ {
         { text: "terminal / bash",}, 
         { text: "for loops", }, 
         { text: "console log", }],
-        true: "console log",
+    true: "console log",
     },
     ];
 
