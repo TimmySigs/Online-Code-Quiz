@@ -1,4 +1,4 @@
-*, *::before, *::after {
+ *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -6,7 +6,7 @@
 body {
     padding: 0%;
     margin: 0%;
-    display: flex;
+    /* display: flex; */
     width: 100;
     height: 100vh;
     justify-content: center;
@@ -14,12 +14,12 @@ body {
     background-color: blueviolet;
 }
 
-header {
+header { */
     /* display: flex; */
     /* align-items: center;
     justify-content: center; */
-    /* margin-top: 26px, 26px; */
-}
+     margin-top: 26px, 26px;
+} 
 
 .container {
     font-weight: bold;
@@ -65,13 +65,13 @@ header {
 
 .hide {
     display: none;
-}
+} 
 
-
+/* 
 body.correct {
     background-color: red;
 }
 
 body.wrong {
     background-color: green;
-}
+} */ 
