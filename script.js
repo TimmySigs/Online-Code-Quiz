@@ -10,10 +10,6 @@ var time = 60;
 let randomQuestion, currentQuestionIndex = 0
 
 startButton.addEventListener('click', startGame)
-// nextButton.addEventListener('click', () => {
-//     currentQuestionIndex++
-//     // nextQuestion()
-// })
 
 
 function startGame() {
@@ -36,10 +32,6 @@ function tick() {
         endQuiz();
     } 
 }
-// function nextQuestion() {
-//     // resetBox()
-//     showQuestion()
-// }
 
 function showQuestion() {
     var currentQuestion = questions[currentQuestionIndex]
@@ -58,35 +50,22 @@ function showQuestion() {
     });
 }
 
-// function resetBox() {
-//     clearStatusClass(document.body)
-//     while (answerButtonEl.firstChild) {
-//         answerButtonEl.removeChild
-//         (answerButtonEl.firstChild)
-//     }
-// }
+
 
 function selectAnswer() {
     if ( 
-        this.value == questions[currentQuestionIndex].true
-    ) {
+        this.value !== questions[currentQuestionIndex].true) 
+        {
+            time -=15;
+
+            if (time < 0) {
+                time = 0;
+            }
     document.getElementById("body").classList.add("correct")
     } else (
         document.getElementById("body").classList.add('wrong')
     )
 
-    // const selectedButton = e.target
-    // const correct = selectedButton.dataset.correct
-    // setStatusClass(document.body, correct)
-    // Array.from(answerButtonEl.children).forEach(button => {
-    //   setStatusClass(button, button.dataset.correct)
-    // })
-    // if (randomQuestion.length > currentQuestionIndex ++) {
-    // //   nextButton.classList.remove('hide')
-    // } else {
-      
-    //   startButton.classList.remove('hide')
-    // }
     currentQuestionIndex++ 
     if (currentQuestionIndex === questions.length) {
         endQuiz()
@@ -110,12 +89,6 @@ function endQuiz() {
     clearInterval(timerId)
 
 }
-
-
-// function clearStatusClass(element) {
-//     element.classList.remove('correct')
-//     element.classList.remove('wrong')
-// }
 
 
 
@@ -170,3 +143,49 @@ var questions = [ {
     ];
 
 console.log(questions);
+
+
+
+
+
+
+
+
+    // const selectedButton = e.target
+    // const correct = selectedButton.dataset.correct
+    // setStatusClass(document.body, correct)
+    // Array.from(answerButtonEl.children).forEach(button => {
+    //   setStatusClass(button, button.dataset.correct)
+    // })
+    // if (randomQuestion.length > currentQuestionIndex ++) {
+    // //   nextButton.classList.remove('hide')
+    // } else {
+      
+    //   startButton.classList.remove('hide')
+    // }
+
+
+    
+// function clearStatusClass(element) {
+//     element.classList.remove('correct')
+//     element.classList.remove('wrong')
+// }
+
+// function resetBox() {
+//     clearStatusClass(document.body)
+//     while (answerButtonEl.firstChild) {
+//         answerButtonEl.removeChild
+//         (answerButtonEl.firstChild)
+//     }
+// }
+
+// function nextQuestion() {
+//     // resetBox()
+//     showQuestion()
+// }
+
+
+// nextButton.addEventListener('click', () => {
+//     currentQuestionIndex++
+//     // nextQuestion()
+// })
